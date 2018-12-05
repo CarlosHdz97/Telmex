@@ -7,11 +7,16 @@ module.exports = {
       mm:req.body.mm,
       aaaa:req.body.aaaa,
       cvc:req.body.cvc,
-      nombre_tarjeta:req.body.nombre_tarjeta
-
+      nombre_tarjeta:req.body.nombre_tarjeta,
+      userId: req.session.userId
     };
     Cards.create(data).then(result=>{
-      res.json(result);
+      if(result){
+        res.redirect('/formaPago');
+      }else{
+        console.log("Ingrese todos los datos solicitados");
+        res.redirect('/formaPago');
+      }
       }).catch(err=>{
         res.json(err);
     });

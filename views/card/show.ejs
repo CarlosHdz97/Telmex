@@ -12,6 +12,7 @@
   </head>
   <body>
     <% include ../partials/menu %>
+    <% include ../partials/message %>
     <div class="container-fluid">
       <div class="row justify-content-center align-items-center" style="height:35vh;">
         <p class="h2 text-danger">Aun no cuentas con ninguna forma de pago</p>
@@ -40,7 +41,7 @@
                   </button>
                 </div>
                 <div class="modal-body">
-                  <form>
+                  <form method="post" action="./formaPago">
                     <div class="form-group">
                       <label for="recipient-name" class="col-form-label">Número de tarjeta:</label>
                       <input type="text" class="form-control"maxlength="16" required>
@@ -48,7 +49,7 @@
                     <div class="row">
                       <div class="col">
                         <label for="recipient-name" class="col-form-label">MM:</label>
-                        <select autocomplete="udemy" data-purpose="expiry-month" class="form-control" required>
+                        <select autocomplete="udemy" data-purpose="expiry-month" class="form-control" required name="mm">
                           <option value="" disabled="">MM</option>
                           <option value="1">01</option>
                           <option value="2">02</option>
@@ -66,7 +67,7 @@
                       </div>
                       <div class="col">
                         <label for="recipient-name" class="col-form-label">AAAA:</label>
-                        <select autocomplete="udemy" data-purpose="expiry-year" class="form-control" required>
+                        <select autocomplete="udemy" data-purpose="expiry-year" class="form-control" required name="aaaa">
                           <option value="" disabled="">AAAA</option>
                           <option value="2019">2019</option>
                           <option value="2020">2020</option>
@@ -92,18 +93,18 @@
                       </div>
                       <div class="col">
                         <label for="recipient-name" class="col-form-label">CVC:</label>
-                        <input type="text" value="" autocomplete="udemy" minlength="3" maxlength="4" data-purpose="security-code" class="ccCVC form-control" required>
+                        <input type="text" value="" autocomplete="udemy" minlength="3" maxlength="4" data-purpose="security-code" class="ccCVC form-control" required name="cvc">
                       </div>
                     </div>
                     <div class="form-group">
                       <label for="recipient-name" class="col-form-label">Nombre en la tarjeta:</label>
-                      <input type="text" value="" autocomplete="udemy" minlength="3" maxlength="4" data-purpose="security-code" class="ccCVC form-control" required>
+                      <input type="text" value="" autocomplete="udemy" data-purpose="security-code" class="ccCVC form-control" required name="nombre_tarjeta">
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                      <button type="submit" class="btn btn-primary">Vamos!</button>
                     </div>
                   </form>
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                  <button type="button" class="btn btn-primary" onclick="guardar()">Vamos!</button>
                 </div>
               </div>
             </div>
