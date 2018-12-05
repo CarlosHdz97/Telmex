@@ -41,4 +41,4 @@ app.get('/receive', function(req, res){
   res.download(file); // Set disposition and send it.
 });
 
-app.listen(3000);
+app.listen(process.env.PORT || 3000);
