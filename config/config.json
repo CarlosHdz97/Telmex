@@ -1,23 +1,23 @@
 {
   "development": {
-    "username": "root",
-    "password": null,
-    "database": "telmex",
-    "host": "127.0.0.1",
+    "username": "bcbpekbkow2cglnu",
+    "password": "px2d2tgtr13l1aas",
+    "database": "tq0sfki1qqrzxs9b",
+    "host": "g8mh6ge01lu2z3n1.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
     "dialect": "mysql"
   },
   "test": {
-    "username": "root",
-    "password": null,
-    "database": "database_test",
-    "host": "127.0.0.1",
+    "username": "bcbpekbkow2cglnu",
+    "password": "px2d2tgtr13l1aas",
+    "database": "tq0sfki1qqrzxs9b",
+    "host": "g8mh6ge01lu2z3n1.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
     "dialect": "mysql"
   },
   "production": {
-    "username": "root",
-    "password": null,
-    "database": "database_production",
-    "host": "127.0.0.1",
+    "username": "bcbpekbkow2cglnu",
+    "password": "px2d2tgtr13l1aas",
+    "database": "tq0sfki1qqrzxs9b",
+    "host": "g8mh6ge01lu2z3n1.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
     "dialect": "mysql"
   }
 }
