@@ -7,7 +7,7 @@ module.exports = {
       mm:req.body.mm,
       aaaa:req.body.aaaa,
       cvc:req.body.cvc,
-      nombre_tarjeta:req.body.nombre_tarjeta
+      nombre_tarjeta:req.body.nombre_tarjeta,
       userId: session.userId
     };
     Cards.create(data).then(result=>{
