@@ -37,7 +37,7 @@ app.use(userRoutes);
 app.use(pagoRoutes);
 app.use(homeRoutes);
 app.get('/receive', function(req, res){
-  var file = __dirname + '/pagoTelefonia.xml';
+  var file = '../pagoTelefonia.xml';
   console.log(file);
   res.download(file); // Set disposition and send it.
 });

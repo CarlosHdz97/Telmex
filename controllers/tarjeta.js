@@ -12,10 +12,19 @@ module.exports = {
     };
     Cards.create(data).then(result=>{
       if(result){
-        res.redirect('/formaPago');
+        res.render('card/show',{message: {
+          title:"Registro exitoso",
+          txt:"la tarjeta se registro",
+          icon:"success",
+          button:"Aceptar"
+        }});
       }else{
-        console.log("Ingrese todos los datos solicitados");
-        res.redirect('/formaPago');
+        res.render('card/show',{message: {
+          title:"Usuario o contraseña incorrecta",
+          txt:"Intentelo nuevamente",
+          icon:"error",
+          button:"Aceptar"
+        }});
       }
       }).catch(err=>{
         res.json(err);
