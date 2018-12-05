@@ -1,0 +1,10 @@
+<% if (typeof message !== "undefined") { %>
+  <script type="text/javascript">
+    swal({
+      title: "<%= message.title%>",
+      text: "<%=message.text%>",
+      icon: "<%=message.icon%>",
+      button: "<%=message.button%>",
+    });
+  </script>
+<% } %>

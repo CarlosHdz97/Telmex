@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <title>Telmex</title>
+  </head>
+  <body>
+    <% include ../partials/menu %>
+    <div class="container-fluid">
+      <div class="row justify-content-center align-items-center" style="height:100vh;">
+        <div class="col-md-3 col-12">
+          <form action="/user?_method=PUT" method="post">
+            <p class="h4 text-primary text-center">Cambiar datos personales</p>
+            <div class="form-group">
+              <label for="formGroupExampleInput">Nombre(s)</label>
+              <input type="text" maxlength="10" class="form-control" id="formGroupExampleInput" placeholder="Nombre(s)" required value=" <%=user.name %>" name="name">
+            </div>
+            <div class="form-group">
+              <label for="formGroupExampleInput2">Apellido paterno</label>
+              <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Apellido paterno" required value="<%= user.first_surname %>" name="apellido_paterno">
+            </div>
+            <div class="form-group">
+              <label for="formGroupExampleInput2">Apellido materno</label>
+              <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Apellido materno" required value="<%= user.second_surname %>" name="apellido_materno">
+            </div>
+            <div class="form-group">
+              <label for="formGroupExampleInput2">Número TELMEX</label>
+              <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Número TELMEX" disabled value="<%= user.phone_number %>">
+            </div>
+            <div class="form-group">
+              <label for="formGroupExampleInput2">Celular de contacto</label>
+              <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Celular de contacto" value="<%= user.mobile_phone %>" name="mobile_phone">
+            </div>
+             <button type="submit" class="btn btn-danger btn-lg btn-block">Actualizar</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+  </body>
+</html>

@@ -1,0 +1,30 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">
+    <img src="../assets/logoTelmex.png" width="45" height="30" alt="">
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="../home">Inicio </a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Mis datos
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="../user">Actualizar mis datos</a>
+          <a class="dropdown-item" href="../user/password">Cambiar contraseña</a>
+          <a class="dropdown-item" href="../formaPago">Mis formas de pago</a>
+        </div>
+      </li>
+    </ul>
+    <div class="nav-item">
+      <form action="/sessions?_method=DELETE" method="POST">
+        <input class="nav-link btn btn-outline-info my-2 my-lg-0" type="submit" name="" value="cerrar sesión">
+      </form>
+    </div>
+  </div>
+</nav>

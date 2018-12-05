@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <title>Telmex</title>
+  </head>
+  <body>
+    <% include ../partials/menu %>
+    <div class="container-fluid">
+      <div class="row justify-content-center align-items-center" style="height:35vh;">
+        <p class="h2 text-danger">Aun no cuentas con ninguna forma de pago</p>
+      </div>
+      <!--<div class="row justify-content-center align-items-center" style="height:80vh;">
+        <div class="col-md-3 col-12">
+          <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="../assets/img/credito.png" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title">Tarjetas de pago</h5>
+              <p class="card-text"> XXXX XXXX XXXX 3456<button type="button" class=" btn-primary btn-lg" onclick="pagar()">Pagar adeudo</button> </p>
+            </div>
+          </div>
+        </div>
+      </div>-->
+      <div class="row justify-content-center align-items-center">
+        <div class="col-md-1 col-12">
+          <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Agregar nueva tarjeta</button>
+          <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Agregar tarjeta</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <form>
+                    <div class="form-group">
+                      <label for="recipient-name" class="col-form-label">Número de tarjeta:</label>
+                      <input type="text" class="form-control"maxlength="16" required>
+                    </div>
+                    <div class="row">
+                      <div class="col">
+                        <label for="recipient-name" class="col-form-label">MM:</label>
+                        <select autocomplete="udemy" data-purpose="expiry-month" class="form-control" required>
+                          <option value="" disabled="">MM</option>
+                          <option value="1">01</option>
+                          <option value="2">02</option>
+                          <option value="3">03</option>
+                          <option value="4">04</option>
+                          <option value="5">05</option>
+                          <option value="6">06</option>
+                          <option value="7">07</option>
+                          <option value="8">08</option>
+                          <option value="9">09</option>
+                          <option value="10">10</option>
+                          <option value="11">11</option>
+                          <option value="12">12</option>
+                        </select>
+                      </div>
+                      <div class="col">
+                        <label for="recipient-name" class="col-form-label">AAAA:</label>
+                        <select autocomplete="udemy" data-purpose="expiry-year" class="form-control" required>
+                          <option value="" disabled="">AAAA</option>
+                          <option value="2019">2019</option>
+                          <option value="2020">2020</option>
+                          <option value="2021">2021</option>
+                          <option value="2022">2022</option>
+                          <option value="2023">2023</option>
+                          <option value="2024">2024</option>
+                          <option value="2025">2025</option>
+                          <option value="2026">2026</option>
+                          <option value="2027">2027</option>
+                          <option value="2028">2028</option>
+                          <option value="2029">2029</option>
+                          <option value="2030">2030</option>
+                          <option value="2031">2031</option>
+                          <option value="2032">2032</option>
+                          <option value="2033">2033</option>
+                          <option value="2034">2034</option>
+                          <option value="2035">2035</option>
+                          <option value="2036">2036</option>
+                          <option value="2037">2037</option>
+                          <option value="2038">2038</option>
+                        </select>
+                      </div>
+                      <div class="col">
+                        <label for="recipient-name" class="col-form-label">CVC:</label>
+                        <input type="text" value="" autocomplete="udemy" minlength="3" maxlength="4" data-purpose="security-code" class="ccCVC form-control" required>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label for="recipient-name" class="col-form-label">Nombre en la tarjeta:</label>
+                      <input type="text" value="" autocomplete="udemy" minlength="3" maxlength="4" data-purpose="security-code" class="ccCVC form-control" required>
+                    </div>
+                  </form>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                  <button type="button" class="btn btn-primary" onclick="guardar()">Vamos!</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script type="text/javascript">
+    function guardar(){
+      swal({
+        title: "¿son correctas sus credenciales?",
+        text: "",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true,
+      })
+      .then((willDelete) => {
+        if (willDelete) {
+          swal("Registro éxitoso", {
+            icon: "success",
+          });
+        } else {
+          swal("No se registro la tarjeta");
+        }
+      });
+    }
+    function pagar(){
+      swal({
+        title: "¿Estas seguro de que quiere pagar con esta tarjeta?",
+        text: "Una vez realizado el pago no se podra realizar un rembolso",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true,
+      })
+      .then((willDelete) => {
+        if (willDelete) {
+          swal("Pago exitoso", {
+            icon: "success",
+          });
+        } else {
+          swal("No se completo el pago");
+        }
+      });
+    }
+
+    </script>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+  </body>
+</html>

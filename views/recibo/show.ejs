@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <title>Bienvenido a mi Telmex</title>
+  </head>
+  <body>
+    <% include ../partials/menu %>
+    <div class="container-fluid">
+      <div class="row justify-content-center align-items-center">
+        <div class="col-md-8 col-12">
+          <div class="row justify-content-center align-items-center">
+            <div class="col-6">
+              <img src="../assets/img/Telmex_Logo.svg.png" alt="" width="250px">
+              <div><b>TELEFONOS DE MEXICO S.A.B de C.V.</b></div>
+              <div>Parque Via 198, col. Cuauthémoc</div>
+              <div>C.P 06500 Ciudad de México</div>
+              <div>RFC: TME840315-KT6</div>
+              <br>
+              <div><%= recibo.user.name+' '+recibo.user.first_surname +' '+ recibo.user.second_surname%></div>
+              <div><%= recibo.user.calle%></div>
+              <div><%= recibo.user.colonia%></div>
+              <div><%= recibo.user.pais +', '+recibo.user.ciudad%></div>
+              <div><%= 'CP '+recibo.user.cp%></div>
+            </div>
+            <div class="col-6">
+              <table class="table table-hover table-sm">
+                <tbody>
+                  <tr>
+                    <td>Folio:</td>
+                    <td><%= recibo.folio%></td>
+                  </tr>
+                  <tr>
+                    <td>Total a pagar:</td>
+                    <td><%= parseInt(recibo.total).toFixed(2)%></td>
+                  </tr>
+                  <tr>
+                    <td>Pagar antes de:</td>
+                    <td><%= recibo.pagar_antes%></td>
+                  </tr>
+                  <tr>
+                    <td>Mes de facturación:</td>
+                    <td><%= recibo.mes_facturacion %></td>
+                  </tr>
+                  <tr>
+                    <td>Teléfono:</td>
+                    <td><%= recibo.user.phone_number%></td>
+                  </tr>
+                  <tr>
+                    <td>Factura No.</td>
+                    <td><%= recibo.facturaN%></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="row justify-content-center align-items-center">
+            <img src="../assets/img/anuncio.png" alt="" width="100%">
+          </div>
+          <div class="row justify-content-center align-items-center">
+            <div class="col-6">
+              <table class="table table-hover table-sm">
+                <thead>
+                  <tr>
+                    <th scope="col">Estado de cuenta</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Saldo anterior: $ <%= parseInt(recibo.total).toFixed(2)%></td>
+                  </tr>
+                  <tr>
+                    <td>Su pago: $ <%= parseInt(recibo.total).toFixed(2)%></td>
+                  </tr>
+                  <tr>
+                    <td>Saldo: $ 0</td>
+                  </tr>
+                  <tr>
+                    <td><b>Cargo del mes: $</b><%= parseInt(recibo.total).toFixed(2)%></td>
+                  </tr>
+                </tbody>
+              </table>
+              <br>
+            </div>
+            <div class="col-6">
+              <table class="table table-hover table-sm">
+                <thead>
+                  <tr>
+                    <th scope="col">Cargos del mes</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Planes y paquetes: $ <%= (recibo.total*.81).toFixed(2)%></td>
+                  </tr>
+                  <tr>
+                    <td>IVA 16%: $ <%= recibo.total*.16%></td>
+                  </tr>
+                  <tr>
+                    <td>IEPS 3%: $ <%= recibo.total*.03%></td>
+                  </tr>
+                  <tr>
+                    <td><b>Total: $ </b><%= (recibo.total*1).toFixed(2) %></td>
+                  </tr>
+                </tbody>
+              </table>
+              <li class="list-group-item d-flex justify-content-between align-items-center">
+                <button type="button" class="btn btn-danger btn-lg btn-block" onclick="pagar()">Pagar</button>
+              </li>
+              <script type="text/javascript">
+              function pagar(){
+                swal({
+                  title: "¿Estas seguro?",
+                  text: "Una vez realizado el pago no se podra realizar un rembolso",
+                  icon: "warning",
+                  buttons: true,
+                  dangerMode: true,
+                })
+                .then((willDelete) => {
+                  if (willDelete) {
+                    swal("Pago exitoso", {
+                      icon: "success",
+                    });
+                  } else {
+                    swal("No se completo el pago");
+                  }
+                });
+              }
+              </script>
+            </div>
+        </div>
+      </div>
+    </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+  </body>
+</html>

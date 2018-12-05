@@ -1,0 +1,29 @@
+npm init
+npm install body-parser ejs express method-override mysql2 sequelize bcrypt express-session
+npm install -g sequelize-cli
+sequelize init
+
+sequelize model:generate --name Table --attributes column:text, column:text
+sequelize model:generate --name User --attributes name:string,first_surname:string,second_surname:string,email:string,phone_number:integer,mobile_phone:integer,password_hash:string,calle:string,colonia:string,pais:string,ciudad:string,cp:string
+
+sequelize model:generate --name Card --attributes numero_tarjeta:string,mm:integer,aaaa:integer,cvc:integer,nombre_tarjeta:string
+sequelize model:generate --name Recibo --attributes mes_facturacion:string,pagar_antes:string,subtotal:decimal,total:decimal
+1:
+sequelize migration:create --name add_user_id_to_cards
+sequelize migration:create --name add_user_id_to_recibos
+
+m:m
+sequelize model:generate --name User --attributes
+sequelize model:generate --name UserSkills --attributes userId:integer,skillId:integer,dekids_coins:integer
+
+sequelize db:migrate
+sequelize db:migrate:undo
+bcrypt es una funcion hash basada en el algoritmo de encriptaci�n blooufish
+
+sequelize seed:generate --name generate_users
+sequelize seed:generate --name generate_skills
+sequelize db:seed:all
+sequelize db:seed:undo:all
+
+sequelize model:generate --name User --attributes name:string,username:string,email:string,password_hash:string,age:integer,dekids_coins:integer,profile:string
+sequelize model:generate --name Skill --attributes name:string,dekids_coins:integer,description:string
